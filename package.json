@@ -1,16 +1,33 @@
 {
   "name": "1loc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "One line of code as a library",
-  "main": "./dist/src/index.js",
+  "main": "dist/src/index.js",
+  "private": false,
+  "repository": "https://github.com/MartinsOnuoha/1loc-lib",
+  "types": "./src/index.ts",
   "scripts": {
     "test": "jest --verbose",
-    "test:watch": "jest --verbose --watch",
-    "watch": "tsc -p"
+    "watch:test": "jest --verbose --watch",
+    "watch:build": "tsc -p tsconfig.json -w",
+    "build:main": "tsc -p tsconfig.json"
   },
   "keywords": [
     "1loc"
   ],
+  "files": [
+    "dist/src",
+    "dist",
+    "defaultConfig",
+    "defaultJestConfig",
+    "!**/*.test.*",
+    "!**/*.spec.*",
+    "!**/*.config.*",
+    "!**/*.json"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
   "author": "MartinsOnuoha",
   "license": "MIT",
   "devDependencies": {
