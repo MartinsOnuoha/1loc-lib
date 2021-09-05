@@ -1,0 +1,34 @@
+{
+  "name": "1loc",
+  "version": "1.0.0",
+  "description": "One line of code as a library",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "jest --verbose",
+    "test:watch": "jest --verbose --watch",
+    "watch": "tsc -p"
+  },
+  "keywords": [
+    "1loc"
+  ],
+  "author": "MartinsOnuoha",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.4",
+    "@babel/preset-typescript": "^7.15.0",
+    "@types/jest": "^27.0.1",
+    "babel-jest": "^27.1.0",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-emoji": "^1.3.1",
+    "jest": "^27.1.0",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-emoji"
+    }
+  }
+}
