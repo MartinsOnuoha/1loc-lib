@@ -58,7 +58,7 @@ const arrayOfStringsToNumbers = (arr: Array<string>): Array<number> => arr.map(N
  * @param prop property to make tally by
  * @returns object
  */
-const makeTallyByProperty = (arr: Array<AnyObject>, prop: string): AnyObject => arr.reduce((prev, curr) => (prev[curr[prop]] = ++prev[curr[prop]] || 1, prev), {});
+const makeTallyByProperty = (arr: Array<AnyObject>, prop: string): AnyObject => arr.reduce((prev, curr) => (prev[curr[prop]] = ++prev[curr[prop]] || 1, prev), {} as AnyObject);
 
 export {
   castAsArray,

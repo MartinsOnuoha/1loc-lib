@@ -2,8 +2,8 @@ import { makeTallyByProperty } from "../src";
 import { AnyObject } from "../src/@types";
 
 
-describe('makeTallyByProperty()', () => {
-  test('returns an object type when given an array', () => {
+describe('makeTallyByProperty()', (): void => {
+  test('returns an object type when given an array', (): void => {
     const arr: Array<AnyObject> = [
       { brand: 'audi', model: 'q8', year: '2019' },
       { brand: 'audi', model: 'rs7', year: '2020' },
