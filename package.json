@@ -2,7 +2,7 @@
   "name": "1loc",
   "version": "1.0.0",
   "description": "One line of code as a library",
-  "main": "./dist/index.js",
+  "main": "./dist/src/index.js",
   "scripts": {
     "test": "jest --verbose",
     "test:watch": "jest --verbose --watch",
