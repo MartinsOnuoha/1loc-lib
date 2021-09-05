@@ -11,7 +11,7 @@
     "watch:test": "jest --verbose --watch",
     "watch:build": "tsc -p tsconfig.json -w",
     "build:main": "tsc -p tsconfig.json",
-    "commit": "git cz"
+    "commit": "git add . && git cz"
   },
   "keywords": [
     "1loc"

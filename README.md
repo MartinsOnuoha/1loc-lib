@@ -49,7 +49,9 @@ console.log(hasSameValues) // true
 
 ## Explore a list of possible One-liners
 
-You can either visit the original 1loc website [here](https://1loc.dev/) or use the documentation below that shows the function names uand their usage. [here](https://1loc.dev/)
+[Documentation Here](https://martins-victor.gitbook.io/1loc-lib/)
+
+You can also visit the original 1loc website [here](https://1loc.dev/).
 
 ## One Liners
 

@@ -1,4 +1,4 @@
-import { AnyObject } from './@types'
+import { AnyObject, Order } from './@types'
 
 /**
  * Cast a value as an array
@@ -60,6 +60,22 @@ const arrayOfStringsToNumbers = (arr: Array<string>): Array<number> => arr.map(N
  */
 const makeTallyByProperty = (arr: Array<AnyObject>, prop: string): AnyObject => arr.reduce((prev, curr) => (prev[curr[prop]] = ++prev[curr[prop]] || 1, prev), {} as AnyObject);
 
+/**
+ * Returns the intersection in multiple arrays
+ * @param a array 1
+ * @param arr other arrays
+ * @returns array of intersections
+ */
+const getArrayIntersection = (a: Array<any>, ...arr: Array<any>): Array<any> => [...new Set(a)].filter(v => arr.every(b => b.includes(v)))
+
+/**
+ * Rank array numbers in ascending or descending order
+ * @param arr array to be ranked
+ * @param order 0 - descending order | 1 -  ascending order
+ * @returns array of ranks
+ */
+const getRankOfArrayNumbers = (arr: Array<number>, order: Order): Array<number> => arr.map((x, _, z) => z.filter(w => order ? w < x : w > x).length + 1);
+
 export {
   castAsArray,
   isArrayEmpty,
@@ -68,5 +84,7 @@ export {
   arrayHasSameValues,
   arrayOfObjectToObject,
   arrayOfStringsToNumbers,
-  makeTallyByProperty
+  makeTallyByProperty,
+  getArrayIntersection,
+  getRankOfArrayNumbers
 }

@@ -7,3 +7,8 @@ export interface Person {
   age: number,
   [index: number|string]: any
 }
+
+export enum Order {
+  ASC = 1,
+  DESC = 0
+}
