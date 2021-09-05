@@ -4,6 +4,15 @@
 
 A library of witty Javascript one-liner pure functions. The [1loc.dev](https://1loc.dev/) website has a collection of useful Javascript one-liners, now you get to use them in your Javascript projects.
 
+## TOC
+
+- [1Loc Lib](#1loc-lib)
+  - [TOC](#toc)
+  - [Getting Started](#getting-started)
+  - [Import Any One-liner and use](#import-any-one-liner-and-use)
+  - [Explore a list of possible One-liners](#explore-a-list-of-possible-one-liners)
+  - [One Liners](#one-liners)
+
 ## Getting Started
 
 Install the 1Loc library using `yarn` or `npm`
@@ -40,4 +49,8 @@ console.log(hasSameValues) // true
 
 ## Explore a list of possible One-liners
 
-You can either visit the original 1loc website [here](https://1loc.dev/) or use the documentation that shows the function names used by the library. [here](https://1loc.dev/)
+You can either visit the original 1loc website [here](https://1loc.dev/) or use the documentation below that shows the function names uand their usage. [here](https://1loc.dev/)
+
+## One Liners
+
+Here's a collection of function definitions and what they do.
