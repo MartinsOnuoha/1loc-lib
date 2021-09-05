@@ -60,6 +60,14 @@ const arrayOfStringsToNumbers = (arr: Array<string>): Array<number> => arr.map(N
  */
 const makeTallyByProperty = (arr: Array<AnyObject>, prop: string): AnyObject => arr.reduce((prev, curr) => (prev[curr[prop]] = ++prev[curr[prop]] || 1, prev), {} as AnyObject);
 
+
+/**
+ * Creates an object with each element in an array and it's occurrence
+ * @param arr an array of objects
+ * @returns object
+ */
+const countOccurrenceOfElements = (arr: Array<string | number>): AnyObject => arr.reduce((prev, curr) => (prev[curr] = ++prev[curr] || 1, prev), {} as Record<string | number, any>);
+
 export {
   castAsArray,
   isArrayEmpty,
@@ -68,5 +76,6 @@ export {
   arrayHasSameValues,
   arrayOfObjectToObject,
   arrayOfStringsToNumbers,
+  countOccurrenceOfElements,
   makeTallyByProperty
 }
