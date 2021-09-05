@@ -45,11 +45,19 @@ const arrayHasSameValues = (a: Array<any>, b: Array<any>): Boolean => JSON.strin
  */
 const arrayOfObjectToObject = (arr: Array<AnyObject>, key: string): AnyObject => arr.reduce((a, b) => ({ ...a, [b[key]]: b }), {});
 
+/**
+ * Convert an array of strings to numbers
+ * @param arr an array of stringified numbers
+ * @returns array of number types
+ */
+const arrayOfStringsToNumbers = (arr: Array<string>): Array<number> => arr.map(Number)
+
 export {
   castAsArray,
   isArrayEmpty,
   cloneArray,
   arrayEqual,
   arrayHasSameValues,
-  arrayOfObjectToObject
+  arrayOfObjectToObject,
+  arrayOfStringsToNumbers
 }
