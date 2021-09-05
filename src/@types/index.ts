@@ -1,6 +1,4 @@
-export interface AnyObject {
-  [index: number|string]: any
-}
+export interface AnyObject extends Record<string | number, any> {}
 
 export interface Person {
   name: string,
