@@ -2,3 +2,5 @@ node_modules
 dist
 /coverage.data
 /coverage/
+*.tgz
+example/node_modules
