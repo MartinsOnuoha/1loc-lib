@@ -2,7 +2,9 @@
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-A library of witty Javascript one-liner pure functions. The [1loc.dev](https://1loc.dev/) website has a collection of useful Javascript one-liners, now you get to use them in your Javascript projects.
+A library of witty Javascript one-liner functions. The [1loc.dev](https://1loc.dev/) website has a collection of useful Javascript one-liners, now you get to use them in your Javascript projects. 
+
+One Liners are great, but the rest of your team would appreciate a little more clarity, So we've abstracted them for you, as readeable function names, so you and your teammates can focus on important stuff.
 
 ## TOC
 
