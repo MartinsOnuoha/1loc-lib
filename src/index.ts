@@ -213,6 +213,14 @@ const swapMatrixRowCol = (matrix: Array<Array<number>>): Array<Array<number>> =>
  */
 const swapArrayItems = (arr: Array<any>, i: any, j: any): Array<any> => arr[i] && arr[j] && [...arr.slice(0, i), arr[j], ...arr.slice(i + 1, j), arr[i], ...arr.slice(j + 1)] || arr;
 
+/**
+ * Create an array from a range
+ * @param min start/initial value of the array
+ * @param max end value of the array
+ * @returns array with values from min to max
+ */
+const createArrayFromRange = (min: number, max: number) => Array.from({ length: max - min + 1 }, (_, i) => min + i);
+
 export {
   castAsArray,
   isArrayEmpty,
@@ -241,5 +249,6 @@ export {
   sortArrayOfNumbers,
   chunkArray,
   swapMatrixRowCol,
-  swapArrayItems
+  swapArrayItems,
+  createArrayFromRange
 }
