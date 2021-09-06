@@ -195,6 +195,13 @@ const chunkArray = (arr: Array<any>, size: number) => arr.reduce((acc, e, i) => 
  */
 const swapMatrixRowCol = (matrix: Array<Array<number>>): Array<Array<number>> => matrix[0].map((_, i) => matrix.map(row => row[i]));
 
+/**
+ * swap array items
+ * @param arr array to swap
+ * @param i first item
+ * @param j second item
+ * @returns array with swaped values
+ */
 const swapArrayItems = (arr: Array<any>, i: any, j: any): Array<any> => arr[i] && arr[j] && [...arr.slice(0, i), arr[j], ...arr.slice(i + 1, j), arr[i], ...arr.slice(j + 1)] || arr;
 
 export {
