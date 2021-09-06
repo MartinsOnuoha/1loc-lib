@@ -65,7 +65,16 @@ const makeTallyByProperty = (arr: Array<AnyObject>, prop: string): AnyObject => 
  * @param arr an array of objects
  * @returns object
  */
-const countOccurrenceOfElements = (arr: Array<string | number>): AnyObject => arr.reduce((prev, curr) => (prev[curr] = ++prev[curr] || 1, prev), {} as Record<string | number, any>);
+const countOccurrenceOfElements = (arr: Array<string | number>): AnyObject => arr.reduce((prev, curr) => (prev[curr] = ++prev[curr] || 1, prev), {} as AnyObject);
+
+
+/**
+ * Returns the number of times a value is present in an array
+ * @param arr an array of values (number or string)
+ * @param val an element (number or string) to search for
+ * @returns number
+ */
+ const countOccurrenceOfValueInArray = (arr: Array<string | number>, val: number | string): number => arr.filter(item => item === val).length;
 
 /**
  * Returns the intersection in multiple arrays
@@ -216,6 +225,7 @@ export {
   getArrayIntersection,
   getRankOfArrayNumbers,
   countOccurrenceOfElements,
+  countOccurrenceOfValueInArray,
   sumArrayOfNumbers,
   removeArrayDuplicates,
   getUnionOfArray,
