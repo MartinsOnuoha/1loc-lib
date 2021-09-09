@@ -1,6 +1,6 @@
 {
   "name": "1loc",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "One line of code as a library",
   "main": "dist/src/index.js",
   "private": false,
