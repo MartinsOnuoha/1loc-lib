@@ -28,13 +28,13 @@ All files |   99.12 |    75.68 |   98.61 |     100 |
 
 Install the 1Loc library using `yarn` or `npm`
 
-```console
+```bash
 yarn add 1loc
 ```
 
 or using npm
 
-```console
+```bash
 npm i 1loc --save
 ```
 

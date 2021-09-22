@@ -3,9 +3,9 @@
 
 
 "1loc@^1.0.2":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/1loc/-/1loc-1.1.0.tgz#404e7f96bab288513999f81b1765d578e5ebf7da"
-  integrity sha512-EyCjKOFLTvpSvhfjyo31L94NTzjEjddY8iKSflNpsr5jR4za6EHV3JomQockZIwJ6EmEdmozeORfM7a76fYl5w==
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/1loc/-/1loc-1.1.1.tgz#225d8fc4a7174856365162c4ba09fc8a93ebc6f2"
+  integrity sha512-Imh9zK+8ngo8LLSzmfBOxY9GhZi2RjAiGB3DD+Ogsvq6eAHFOGsqRCKOdttqgd1kLvvMA9Z+z8i2R+X3fwZ5+A==
   dependencies:
     module-alias "^2.2.2"
 

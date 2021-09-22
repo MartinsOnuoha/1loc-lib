@@ -1,0 +1,16 @@
+node_modules
+node_modules/*
+examples
+coverage
+.github
+tests
+src
+.gitignore
+babel.config.js
+jest-setup.ts
+jest.config.ts
+*.config.*
+yarn.lock
+tsconfig.json
+package.json
+*.tgz
