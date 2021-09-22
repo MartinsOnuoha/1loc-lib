@@ -1,3 +1,5 @@
-const a = require('1loc')
+const { castAsArray } = require('1loc')
 
-console.log(a)
+const result = castAsArray('1')
+
+console.log(result) // ['1']
