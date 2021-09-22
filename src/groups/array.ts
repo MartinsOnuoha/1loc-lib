@@ -236,6 +236,14 @@ const getCartesianProduct = (...sets: Array<any>) => sets.reduce((acc, set) => a
 const emptyArray = (arr: Array<any>) => arr.length = 0
 
 /**
+ * Find the number from `arr` which is closest to `n`
+ * @param arr array to search through
+ * @param n number to find closest of
+ * @returns number
+ */
+const getClosestValue = (arr: number[], n: number): number => arr.reduce((prev, curr) => Math.abs(curr - n) < Math.abs(prev - n) ? curr : prev);
+
+/**
  * unzip a given array
  * @param arr array to be unzipped
  * @returns unzipped array
@@ -281,6 +289,7 @@ export {
   createArrayFromRange,
   getCartesianProduct,
   emptyArray,
+  getClosestValue,
   unzipArrayOfArrays,
   zipArrayOfArrays
 }
