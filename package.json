@@ -1,6 +1,6 @@
 {
   "name": "1loc",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "One line of code as a library",
   "main": "dist/src/index.js",
   "private": false,
@@ -25,20 +25,11 @@
     "build:main": "tsc -p tsconfig.json",
     "build": "ts-node -r tsconfig-paths/register ./src/index.ts",
     "build:publish": "rm ./*.tgz && yarn build:main && npm pack && npm publish",
-    "commit": "git add . && git cz"
+    "commit": "git add . && git cz",
+    "run:example": "node ./examples"
   },
   "keywords": [
     "1loc"
-  ],
-  "files": [
-    "dist/src",
-    "dist",
-    "defaultConfig",
-    "defaultJestConfig",
-    "!**/*.test.*",
-    "!**/*.spec.*",
-    "!**/*.config.*",
-    "!**/*.json"
   ],
   "engines": {
     "node": ">=14"
