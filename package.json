@@ -49,6 +49,8 @@
     "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.4",
     "@babel/preset-typescript": "^7.15.0",
+    "@testing-library/dom": "^8.3.0",
+    "@testing-library/jest-dom": "^5.14.1",
     "@types/jest": "^27.0.1",
     "babel-jest": "^27.1.0",
     "babel-plugin-module-resolver": "^4.1.0",
