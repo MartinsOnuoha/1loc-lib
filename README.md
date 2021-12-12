@@ -10,19 +10,11 @@ One Liners are great, but the rest of your team would appreciate a little more c
 
 - [1Loc Lib](#1loc-lib)
   - [TOC](#toc)
-  - [Coverage](#coverage)
   - [Getting Started](#getting-started)
   - [Import Any One-liner and use](#import-any-one-liner-and-use)
   - [Explore a list of possible One-liners](#explore-a-list-of-possible-one-liners)
   - [One Liners](#one-liners)
-
-## Coverage
-
-File      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
-----------|---------|----------|---------|---------|-------------------
-All files |   99.12 |    75.68 |   98.61 |     100 |
- array.ts |     100 |     87.5 |     100 |     100 | 8,183,214
- dom.ts   |   94.44 |    53.85 |   88.89 |     100 | 16-61
+  - [Contribution](#contribution)
 
 ## Getting Started
 
@@ -67,3 +59,5 @@ You can also visit the original 1loc website [here](https://1loc.dev/).
 ## One Liners
 
 Here's a collection of function definitions and what they do.
+
+## Contribution

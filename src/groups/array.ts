@@ -5,21 +5,21 @@ import { AnyObject, Order } from '@types'
  * @param value value to be casted to array
  * @returns
  */
-const castAsArray = (value: Array<any>): Array<any> => Array.isArray(value) ? value : [value];
+const castAsArray = <T,_>(value: T | T[]): T[] => Array.isArray(value) ? value : [value];
 
 /**
  * Check if an array is empty
  * @param value array to validate
  * @returns boolean
- */
-const isArrayEmpty = (value: Array<any>): Boolean => !Array.isArray(value) || value.length === 0;
+*/
+const isArrayEmpty = <T, _>(value: T[]): boolean => !Array.isArray(value) || value.length === 0;
 
 /**
  * Clone an array
  * @param value array to clone
  * @returns clone of initial array
- */
-const cloneArray = (value: Array<any>): Array<any> => value.slice(0);
+*/
+const cloneArray = <T, _>(value: T[]): T[] => value.slice(0);
 
 /**
  * Compare two arrays has same values in same order
@@ -27,62 +27,193 @@ const cloneArray = (value: Array<any>): Array<any> => value.slice(0);
  * @param b second array to compare
  * @returns boolean
  */
-const arrayEqual = (a: Array<any>, b: Array<any>): Boolean => JSON.stringify(a) === JSON.stringify(b);
+const arrayEqual = <T, _>(a: T[], b: T[]): boolean => JSON.stringify(a) === JSON.stringify(b);
 
 /**
  * Compare two arrays regardless of order
  * @param a first array to compare
  * @param b second array to compare
  * @returns boolean
- */
-const arrayHasSameValues = (a: Array<any>, b: Array<any>): Boolean => JSON.stringify(a.sort()) === JSON.stringify(b.sort())
+*/
+const arrayHasSameValues = <T, _>(a: T[], b: Array<any>): boolean => JSON.stringify(a.sort()) === JSON.stringify(b.sort())
 
 /**
  * Convert an array of objects to a single object
  * @param arr array of objects
  * @param key key from the objects value to group by
  * @returns object
- */
-const arrayOfObjectToObject = (arr: Array<AnyObject>, key: string): AnyObject => arr.reduce((a, b) => ({ ...a, [b[key]]: b }), {} as AnyObject);
+*/
+const arrayOfObjectToObject = <T extends Record<string, any>, K extends keyof T>(arr: T[], key: K): Record<string, T> => arr.reduce((a, b) => ({ ...a, [b[key]]: b }), {} as Record<string, T>);
 
 /**
  * Convert an array of strings to numbers
  * @param arr an array of stringified numbers
  * @returns array of number types
- */
-const arrayOfStringsToNumbers = (arr: Array<string>): Array<number> => arr.map(Number)
+*/
+const arrayOfStringsToNumbers = <T extends string | number>(arr: T[]): number[] => arr.map(Number)
 
 /**
  * Creates a tally of items in an array based on specified property
  * @param arr an array of objects
  * @param prop property to make tally by
  * @returns object
- */
-const makeTallyByProperty = (arr: Array<AnyObject>, prop: string): AnyObject => arr.reduce((prev, curr) => (prev[curr[prop]] = ++prev[curr[prop]] || 1, prev), {} as AnyObject);
+*/
+const makeTallyByProperty = <T extends Record<string, string>, K extends keyof T>(arr: T[], prop: K): Record<string, number> => arr.reduce((prev, curr) => (prev[curr[prop]] = ++prev[curr[prop]] || 1, prev), {} as Record<string, number>);
 
 /**
  * Creates an object with each element in an array and it's occurrence
  * @param arr an array of objects
  * @returns object
- */
-const countOccurrenceOfElements = (arr: Array<string | number>): AnyObject => arr.reduce((prev, curr) => (prev[curr] = ++prev[curr] || 1, prev), {} as AnyObject);
-
+*/
+const countOccurrenceOfElements = <T extends string | number>(arr: T[]): Record<string, number> => arr.reduce((prev, curr) => (prev[curr] = ++prev[curr] || 1, prev), {} as Record<T, number>);
 
 /**
  * Returns the number of times a value is present in an array
  * @param arr an array of values (number or string)
  * @param val an element (number or string) to search for
  * @returns number
+*/
+const countOccurrenceOfValueInArray = <T, _>(arr: T[], val: T): number => arr.filter(item => item === val).length;
+
+/**
+ * Create an array of cumulative sum
+ * @param arr array of numbers to sum
+ * @returns array of cumulative sum
  */
- const countOccurrenceOfValueInArray = (arr: Array<string | number>, val: number | string): number => arr.filter(item => item === val).length;
+const getCumulativeSum = (arr: number[]): number[] => arr.reduce((a, b, i) => (i === 0 ? [b] : [...a, b + a[i - 1]]), [0]);
+
+/**
+ * Create an array from a range
+ * @param min start/initial value of the array
+ * @param max end value of the array
+ * @returns array with values from min to max
+ */
+const createArrayFromRange = (min: number, max: number) => Array.from({ length: max - min + 1 }, (_, i) => min + i);
+
+/**
+ * create a cartesian product
+ * @param array of numbers to use [1, 2], [3, 4]
+ * @returns
+*/
+const getCartesianProduct = (...sets: Array<any>) => sets.reduce((acc, set) => acc.flatMap((x: number[]) => set.map((y: number) => [...x, y])), [[]])
+
+/**
+ * Empty a given array
+ * @param arr array to be emptied
+ * @returns array
+ */
+const emptyArray = (arr: Array<any>) => arr.length = 0
+
+/**
+ * Find the number from `arr` which is closest to `n`
+ * @param arr array to search through
+ * @param n number to find closest of
+ * @returns number
+ */
+const getClosestValue = (arr: number[], n: number): number => arr.reduce((prev, curr) => Math.abs(curr - n) < Math.abs(prev - n) ? curr : prev);
+
+/**
+ * Find the index of the last matching item of an array
+ * @param arr array to find index in
+ * @param predicate condition items need to fulfil
+ * @returns index of last item that fulfils condition
+ */
+const lastIndex = <T,_>(arr: T[], predicate: (a: T) => boolean): number => arr.map((item) => predicate(item)).lastIndexOf(true);
+
+/**
+ * Find the index of the maximum item of an array
+ * @param arr array of numbers
+ * @returns index of maximum value
+ */
+const getIndexOfMaxValue = (arr: number[]): number => arr.reduce((prev, curr, i, a) => (curr > a[prev] ? i : prev), 0);
+
+/**
+ * Find the index of the maximum item of an array
+ * @param arr array of numbers
+ * @returns index of minimum value
+ */
+const getIndexOfMinValue = (arr: number[]): number => arr.reduce((prev, curr, i, a) => (curr > a[prev] ? i : prev), 0);
+
+/**
+ * Find the length of the longest string in an array
+ * @param arr array of strings
+ * @returns length of longest string
+*/
+const getLengthLongestString = (arr: string[]): number => Math.max(...arr.map((el) => el.length));
+
+/**
+ *
+ * @param arr array of objects
+ * @param key object key to evaluate by
+ * @returns object with highest value of provided key
+ */
+const getMaxItemByKey = <T extends Record<string, any>, K extends keyof T>(arr: T[], key: K): T => (arr.reduce((a, b) => (a[key] >= b[key] ? a : b), {} as T));
+
+/**
+ * Find the minimum item of an array
+ * @param arr array of numbers
+ * @returns minimum number in array
+ */
+const getMinItem = (arr: number[]): number => Math.min(...arr)
+
+/**
+ * Flatten an array
+ * @param arr multidimentional array to flatten
+ * @returns flattened array
+ */
+const flatten = (arr: any[]): any[] => arr.reduce((a, b) => (Array.isArray(b) ? [...a, ...flatten(b)] : [...a, b]), []);
+
+/**
+ * Generates an array of alphabet characters
+ * @returns array of alphabets
+ */
+const getArrayOfAlphabets = (): string[] => [...Array(26)].map((_, i) => (i + 10).toString(36));
+
+/**
+ * Get all arrays of consecutive elements
+ * @param arr array to generate chunk from
+ * @param size size of each consecutive array
+ * @returns nested array
+ */
+const getConsecutiveArrays = <T,_>(arr: T[], size: number): T[][] => (size > arr.length ? [] : arr.slice(size - 1).map((_, i) => arr.slice(i, size + i)));
+
+/**
+ * Get all n-th items of an array
+ * @param arr array of items
+ * @param nth interval
+ * @returns array of all items in nth interval
+ */
+const getNthItems = <T,_>(arr: T[], nth: number): T[] => arr.filter((_, i) => i % nth === nth - 1);
+
+/**
+ * Get all subsets of an array
+ * @param arr array
+ * @returns array of subset
+ */
+const getSubsets = <T,>(arr: T[]): T[][] => (arr.reduce((prev, curr) => prev.concat(prev.map((k) => k.concat(curr))), [[]] as T[][]));
+
+/**
+ * Get indices of a value in an array
+ * @param arr array to find indices in
+ * @param value array value to search for
+ * @returns array of indices where value exists
+ */
+const getIndices = <T,>(arr: T[], value: T): number[] => (arr.reduce((acc, v, i) => (v === value ? [...acc, i] : acc), [] as number[]));
+
+/**
+ * Get the average of an array
+ * @param arr array to find average of
+ * @returns average of all values
+ */
+const getAverage = (arr: number[]): number => arr.reduce((a, b) => a + b, 0) / arr.length;
 
 /**
  * Returns the intersection in multiple arrays
  * @param a array 1
  * @param arr other arrays
  * @returns array of intersections
- */
- const getArrayIntersection = (a: Array<any>, ...arr: Array<any>): Array<any> => [...new Set(a)].filter(v => arr.every(b => b.includes(v)))
+*/
+const getArrayIntersection = <T, _>(a: T[], ...arr: Array<any>): T[] => [...new Set(a)].filter(v => arr.every(b => b.includes(v)))
 
  /**
   * Rank array numbers or alphabets in ascending or descending order
@@ -90,27 +221,27 @@ const countOccurrenceOfElements = (arr: Array<string | number>): AnyObject => ar
   * @param order 0 - descending order | 1 -  ascending order
   * @returns array of ranks
   */
-const getRankOfArrayNumbers = (arr: Array<number|string>, order: Order): Array<number> => arr.map((x, _, z) => z.filter(w => order ? w < x : w > x).length + 1);
+const getRankOfArrayNumbers = <T extends number | string>(arr: T[], order: Order): Array<number> => arr.map((x, _, z) => z.filter(w => order ? w < x : w > x).length + 1);
 
 /**
  * sum numbers in an array
  * @param arr Array to sum up
  * @returns sum of numbers in array
- */
-const sumArrayOfNumbers = (arr: Array<number>): number => arr.reduce((acc: number, curr: number) => acc + curr, 0)
+*/
+const sumArrayOfNumbers = (arr: number[]): number => arr.reduce((acc: number, curr: number) => acc + curr, 0)
 
 /**
  * returns given array with unique items
  * @param arr array to remove duplicates from
  * @returns array with unique items
- */
+*/
 const removeArrayDuplicates = (arr: Array<any>): Array<any> => [...new Set(arr)]
 
 /**
  * Get the union of multiple arrays
  * @param arr arrays to compare separated by commas
  * @returns union of all specified arrays
- */
+*/
 const getUnionOfArray = (...arr: Array<any>): Array<any> => [...new Set(arr.flat())]
 
 /**
@@ -118,7 +249,7 @@ const getUnionOfArray = (...arr: Array<any>): Array<any> => [...new Set(arr.flat
  * @param arr array to be grouped
  * @param key key to group items by
  * @returns Object<Array>
- */
+*/
 const groupByKey = (arr: Array<AnyObject>, key: string): AnyObject => arr.reduce((acc, item) => ((acc[item[key]] = [...(acc[item[key]] || []), item]), acc), {} as AnyObject);
 
 /**
@@ -126,7 +257,7 @@ const groupByKey = (arr: Array<AnyObject>, key: string): AnyObject => arr.reduce
  * @param arr base array
  * @param arrays other arrays
  * @returns array
- */
+*/
 const mergeArray = (arr: Array<any>, ...arrays: Array<any>): Array<any> => arr.concat(...arrays);
 
 /**
@@ -157,7 +288,7 @@ const getSingleOccurrence = (arr: Array<any>): Array<any> => arr.filter(i => arr
  * @param arr array to filter
  * @returns array with truthy values
  */
-const removeFalsy = (arr: Array<any>): Array<any> => arr.filter(Boolean)
+const removeFalsy = <T,_>(arr: T[]): Array<any> => arr.filter(Boolean)
 
 /**
  * Repeat an array a specified number of times
@@ -190,19 +321,19 @@ const sortArrayObjectsByKey = (arr: Array<AnyObject>, key: string): Array<AnyObj
 const sortArrayOfNumbers = (arr: Array<number>): Array<number> => arr.sort((a: number, b: number) => a - b);
 
 /**
- * Returns chunks of an array
+ * Split an array into chunks
  * @param arr array to be chuncked
  * @param size hwo many chuncks
  * @returns array chunks
  */
-const chunkArray = (arr: Array<any>, size: number) => arr.reduce((acc, e, i) => (i % size ? acc[acc.length - 1].push(e) : acc.push([e]), acc), []);
+const chunkArray = <T,>(arr: T[], size: number): T[][] => arr.reduce((acc: T[][], e, i) => (i % size ? acc[acc.length - 1].push(e) : acc.push([e]), acc), []);
 
 /**
  * Swaps the rows and columns of a matrix
  * @param matrix matrix to swap
  * @returns matrix after swap
  */
-const swapMatrixRowCol = (matrix: Array<Array<number>>): Array<Array<number>> => matrix[0].map((_, i) => matrix.map(row => row[i]));
+const swapMatrixRowCol = <T extends number>(matrix: Array<T[]>): Array<T[]> => matrix[0].map((_, i) => matrix.map(row => row[i]));
 
 /**
  * swap array items
@@ -212,36 +343,6 @@ const swapMatrixRowCol = (matrix: Array<Array<number>>): Array<Array<number>> =>
  * @returns array with swaped values
  */
 const swapArrayItems = (arr: Array<any>, i: any, j: any): Array<any> => arr[i] && arr[j] && [...arr.slice(0, i), arr[j], ...arr.slice(i + 1, j), arr[i], ...arr.slice(j + 1)] || arr;
-
-/**
- * Create an array from a range
- * @param min start/initial value of the array
- * @param max end value of the array
- * @returns array with values from min to max
- */
-const createArrayFromRange = (min: number, max: number) => Array.from({ length: max - min + 1 }, (_, i) => min + i);
-
-/**
- * create a cartesian product
- * @param sets array of numbers to use [1, 2], [3, 4]
- * @returns
- */
-const getCartesianProduct = (...sets: Array<any>) => sets.reduce((acc, set) => acc.flatMap((x: Array<number>) => set.map((y: number) => [...x, y])), [[]])
-
-/**
- * Empty a given array
- * @param arr array to be emptied
- * @returns array
- */
-const emptyArray = (arr: Array<any>) => arr.length = 0
-
-/**
- * Find the number from `arr` which is closest to `n`
- * @param arr array to search through
- * @param n number to find closest of
- * @returns number
- */
-const getClosestValue = (arr: number[], n: number): number => arr.reduce((prev, curr) => Math.abs(curr - n) < Math.abs(prev - n) ? curr : prev);
 
 /**
  * unzip a given array
@@ -266,10 +367,29 @@ export {
   arrayOfObjectToObject,
   arrayOfStringsToNumbers,
   makeTallyByProperty,
-  getArrayIntersection,
-  getRankOfArrayNumbers,
   countOccurrenceOfElements,
   countOccurrenceOfValueInArray,
+  getCumulativeSum,
+  createArrayFromRange,
+  getCartesianProduct,
+  emptyArray,
+  getClosestValue,
+  lastIndex,
+  getIndexOfMaxValue,
+  getIndexOfMinValue,
+  getLengthLongestString,
+  getMaxItemByKey,
+  getMinItem,
+  flatten,
+  getArrayOfAlphabets,
+  getConsecutiveArrays,
+  getNthItems,
+  getSubsets,
+  getIndices,
+  getAverage,
+
+  getArrayIntersection,
+  getRankOfArrayNumbers,
   sumArrayOfNumbers,
   removeArrayDuplicates,
   getUnionOfArray,
@@ -286,10 +406,6 @@ export {
   chunkArray,
   swapMatrixRowCol,
   swapArrayItems,
-  createArrayFromRange,
-  getCartesianProduct,
-  emptyArray,
-  getClosestValue,
   unzipArrayOfArrays,
   zipArrayOfArrays
 }
