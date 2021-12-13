@@ -6,7 +6,6 @@ import { AnyObject, Order } from '@types'
  * @returns
  */
 const castAsArray = <T,_>(value: T | T[]): T[] => Array.isArray(value) ? value : [value];
-
 /**
  * Check if an array is empty
  * @param value array to validate
@@ -387,7 +386,6 @@ export {
   getSubsets,
   getIndices,
   getAverage,
-
   getArrayIntersection,
   getRankOfArrayNumbers,
   sumArrayOfNumbers,
