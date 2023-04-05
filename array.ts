@@ -6,7 +6,7 @@ import { AnyObject, Order } from '@types'
  * @param size hwo many chuncks
  * @returns array chunks
  */
-const chunk = <T,>(arr: T[], size: number): T[][] => arr.reduce((acc: T[][], e, i) => (i % size ? acc[acc.length - 1].push(e) : acc.push([e]), acc), []);
+const chunkArray = <T,>(arr: T[], size: number): T[][] => arr.reduce((acc: T[][], e, i) => (i % size ? acc[acc.length - 1].push(e) : acc.push([e]), acc), []);
 /**
  * Swaps the rows and columns of a matrix
  * @param matrix matrix to swap
@@ -31,14 +31,14 @@ const suffixAmPm = (h: number): string => `${h % 12 === 0 ? 12 : h % 12}${h < 12
  * @param otherDate Date
  * @returns number
  */
-const diffDays = (date: Date, otherDate: Date): number => Math.ceil(Math.abs(date.valueOf() - otherDate.valueOf()) / (1000 * 60 * 60 * 24));
+const getDaysBtwDates = (date: Date, otherDate: Date): number => Math.ceil(Math.abs(date.valueOf() - otherDate.valueOf()) / (1000 * 60 * 60 * 24));
 /**
  * Calculate the number of months between two dates
  * @param startDate
  * @param endDate
  * @returns number
  */
-const monthDiff = (startDate: Date, endDate: Date): number => Math.max(0, (endDate.getFullYear() - startDate.getFullYear()) * 12 - startDate.getMonth() + endDate.getMonth());
+const monthsBtwDates = (startDate: Date, endDate: Date): number => Math.max(0, (endDate.getFullYear() - startDate.getFullYear()) * 12 - startDate.getMonth() + endDate.getMonth());
 /**
  * swap array items
  * @param arr array to swap
@@ -72,6 +72,13 @@ const formatYmd = (date: Date): string => date.toISOString().slice(0, 10);
  * @returns string
  */
 const secondsToHms = (s: number): string => new Date(s * 1000).toISOString().substr(11, 8);
+/**
+ * Extract year, month, day, hour, minute, second and millisecond from a date
+ * @param date Date
+ * @returns string[]
+ */
+const extractDateProps = (date: Date): string[] =>date.toISOString().split(/[^0-9]/).slice(0, -1);
+
 
 /**
  * Cast a value as an array
@@ -395,17 +402,18 @@ const sortArrayOfNumbers = (arr: Array<number>): Array<number> => arr.sort((a: n
 
 
 export {
-  chunk,
+  chunkArray,
   transpose,
   zip,
   suffixAmPm,
-  diffDays,
-  monthDiff,
+  getDaysBtwDates,
+  monthsBtwDates,
   swapArrayItems,
   unzip,
   compareDates,
   formatYmd,
   secondsToHms,
+  extractDateProps,
 
   castAsArray,
   isArrayEmpty,
