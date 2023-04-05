@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"1loc@^1.0.2":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/1loc/-/1loc-1.1.1.tgz#225d8fc4a7174856365162c4ba09fc8a93ebc6f2"
-  integrity sha512-Imh9zK+8ngo8LLSzmfBOxY9GhZi2RjAiGB3DD+Ogsvq6eAHFOGsqRCKOdttqgd1kLvvMA9Z+z8i2R+X3fwZ5+A==
+"1loc@^1.1.7":
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/1loc/-/1loc-1.1.7.tgz#ca765a1b923be812f6d1fc8712c11886b2ac2de5"
+  integrity sha512-wqy4ky0R+c2ITYJrihOEVLL5+cfM+6XFzBFgL83B1+YSC8H4uuyPDRTUEnMKNBxJ4YZE1FW2cTiULc5DZOYe6g==
   dependencies:
     module-alias "^2.2.2"
 

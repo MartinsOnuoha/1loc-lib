@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "1loc": "^1.0.2"
+    "1loc": "^1.1.7"
   },
   "author": "",
   "license": "ISC"
