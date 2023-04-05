@@ -250,7 +250,7 @@ const getUnionOfArray = (...arr: Array<any>): Array<any> => [...new Set(arr.flat
  * @param key key to group items by
  * @returns Object<Array>
 */
-const groupByKey = (arr: Array<AnyObject>, key: string): AnyObject => arr.reduce((acc, item) => ((acc[item[key]] = [...(acc[item[key]] || []), item]), acc), {} as AnyObject);
+const groupByKey = (arr: Array<Record<string | number, any>>, key: string): Record<string | number, any> => arr.reduce((acc, item) => ((acc[item[key]] = [...(acc[item[key]] || []), item]), acc), {} as AnyObject);
 
 /**
  * merges two or more arrays into one
@@ -326,9 +326,7 @@ const sortArrayOfNumbers = (arr: Array<number>): Array<number> => arr.sort((a: n
  * @param size hwo many chuncks
  * @returns array chunks
  */
-const chunk = <T,>(arr: T[], size: number): T[][] => (
-  arr.reduce((acc, e, i) => (i % size ? acc[acc.length - 1].push(e) : acc.push([e]), acc), [] as T[][])
-);
+const chunk = <T,>(arr: T[], size: number): T[][] => arr.reduce((acc: T[][], e, i) => (i % size ? acc[acc.length - 1].push(e) : acc.push([e]), acc), []);
 
 /**
  * Swaps the rows and columns of a matrix

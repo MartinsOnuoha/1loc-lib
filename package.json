@@ -23,7 +23,7 @@
     "watch:test": "jest --verbose --watch",
     "watch:build": "no -p tsconfig.json -w",
     "build:main": "tsc -p tsconfig.json",
-    "build": "ts-node -r tsconfig-paths/register ./src/index.ts",
+    "build": "ts-node -r tsconfig-paths/register ./index.ts",
     "build:publish": "rm ./*.tgz && yarn build:main && npm pack && npm publish",
     "commit": "git add . && git cz",
     "run:example": "node ./examples"
