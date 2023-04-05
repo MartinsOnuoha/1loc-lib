@@ -1,4 +1,4 @@
-import { mergeArray } from "@array";
+import { mergeArray } from "../../array";
 
 describe('mergeArray()', () => {
   test('it merges 2 arrays', () => {

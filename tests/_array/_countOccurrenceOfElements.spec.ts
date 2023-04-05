@@ -1,4 +1,4 @@
-import { countOccurrenceOfElements } from "@array";
+import { countOccurrenceOfElements } from "../../array";
 
 describe('countOccurrenceOfElements()', (): void => {
   test('returns object with elements and their correct occurence', (): void => {

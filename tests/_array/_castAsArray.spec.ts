@@ -1,4 +1,4 @@
-import { castAsArray } from '@array'
+import { castAsArray } from '../../'
 
 describe('castAsArray()', (): void => {
   test('returns an array', (): void => {

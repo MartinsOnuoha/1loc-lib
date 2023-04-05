@@ -1,4 +1,4 @@
-import { arrayEqual, cloneArray } from "@array";
+import { arrayEqual, cloneArray } from "../../array";
 
 
 describe('arrayEqual()', (): void => {

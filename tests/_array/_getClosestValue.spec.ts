@@ -1,4 +1,4 @@
-import { getClosestValue } from "@array";
+import { getClosestValue } from "../../array";
 
 const result = getClosestValue([29, 87, 8, 78, 97, 20, 75, 33, 24, 17], 50)
 

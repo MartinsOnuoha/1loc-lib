@@ -1,4 +1,4 @@
-import { emptyArray } from "@array";
+import { emptyArray } from "../../array";
 
 describe('emptyArray()', (): void => {
   test('it returns an empty array', (): void => {

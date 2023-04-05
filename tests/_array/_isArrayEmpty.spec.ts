@@ -1,4 +1,4 @@
-import { isArrayEmpty } from "@array";
+import { isArrayEmpty } from "../../array";
 
 describe('isArrayEmpty()', (): void => {
   test('returns true for empty array', (): void => {

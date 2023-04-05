@@ -1,4 +1,4 @@
-import { getUnionOfArray } from "@array"
+import { getUnionOfArray } from "../../array"
 
 describe('getUnionOfArray()', (): void => {
   test('it returns union of 2 arrays', (): void => {

@@ -1,4 +1,4 @@
-import { swapArrayItems } from "@array"
+import { swapArrayItems } from "../../array"
 
 describe('swapArrayItems()', (): void => {
   test('swaps two array items', (): void => {

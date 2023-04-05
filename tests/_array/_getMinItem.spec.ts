@@ -1,4 +1,4 @@
-import { getMinItem } from "@array";
+import { getMinItem } from "../../array";
 
 describe('getMinItem()', () => {
   test('returns minimum item in array', () => {

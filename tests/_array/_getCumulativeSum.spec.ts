@@ -1,4 +1,4 @@
-import { getCumulativeSum } from '@array'
+import { getCumulativeSum } from '../../'
 
 describe('getCumulativeSum()', (): void => {
   test('it returns an array of cumulative sum', (): void => {

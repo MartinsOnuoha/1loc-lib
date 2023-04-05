@@ -1,4 +1,4 @@
-import { getAverage } from "@array";
+import { getAverage } from "../../array";
 
 describe('getAverage()', () => {
   test('returns the average of values in array', () => {

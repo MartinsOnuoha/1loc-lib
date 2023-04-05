@@ -1,4 +1,4 @@
-import { cloneArray } from "@array";
+import { cloneArray } from "../../array";
 import { Person } from "@types";
 
 describe('cloneArray()', (): void => {

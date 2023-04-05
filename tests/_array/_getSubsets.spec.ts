@@ -1,4 +1,4 @@
-import { getSubsets } from "@array";
+import { getSubsets } from "../../array";
 
 describe('getSubsets()', () => {
   test('returns array of subsets', () => {

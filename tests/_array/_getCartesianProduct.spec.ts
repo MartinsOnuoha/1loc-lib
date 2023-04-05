@@ -1,4 +1,4 @@
-import { getCartesianProduct } from "@array";
+import { getCartesianProduct } from "../../array";
 
 describe('getCartesianProduct()', () => {
   test('it returns the cartesian product', () => {

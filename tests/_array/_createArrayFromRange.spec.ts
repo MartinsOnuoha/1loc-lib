@@ -1,4 +1,4 @@
-import { createArrayFromRange } from '@array'
+import { createArrayFromRange } from '../../'
 
 const arr = createArrayFromRange(5, 10)
 

@@ -1,4 +1,4 @@
-import { getLengthLongestString } from "@array";
+import { getLengthLongestString } from "../../array";
 
 describe('getLengthLongestString()', () => {
   test('returns the length of longest string in array', () => {

@@ -1,4 +1,4 @@
-import { getArrayIntersection } from "@array";
+import { getArrayIntersection } from "../../array";
 
 describe('getArrayIntersection()', (): void => {
   test('it returns intersection of two arrays', (): void => {

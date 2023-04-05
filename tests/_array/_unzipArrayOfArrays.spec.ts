@@ -1,9 +1,9 @@
-import { unzipArrayOfArrays } from "@array";
+import { unzip } from "../../array";
 
 const arr = [['a', 1], ['b', 2], ['c', 3], ['d', 4], ['e', 5]]
-const result = unzipArrayOfArrays(arr)
+const result = unzip(arr)
 
-describe('unzipArrayOfArrays()', (): void => {
+describe('unzip()', (): void => {
   test('returns array of arrays', (): void => {
     expect(result.length).toBeTruthy()
   })

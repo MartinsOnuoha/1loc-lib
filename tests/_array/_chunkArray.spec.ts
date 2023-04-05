@@ -1,4 +1,4 @@
-import { chunk } from "@array";
+import { chunk } from "../../array";
 
 describe('chunk()', () => {
   test('returns chunks of a given array', (): void => {

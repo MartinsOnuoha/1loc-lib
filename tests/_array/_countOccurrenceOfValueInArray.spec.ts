@@ -1,4 +1,4 @@
-import { countOccurrenceOfValueInArray } from "@array";
+import { countOccurrenceOfValueInArray } from "../../array";
 
 describe('countOccurrenceOfValueInArray()', (): void => {
     test('should return the correct number of a value occurs for an element that is in existence', (): void => {

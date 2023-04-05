@@ -1,4 +1,4 @@
-import { lastIndex } from "@array";
+import { lastIndex } from "../../array";
 
 describe('lastIndex()', () => {
   test('returns index of last matching item', (): void => {

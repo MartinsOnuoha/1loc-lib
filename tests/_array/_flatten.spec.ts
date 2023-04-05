@@ -1,4 +1,4 @@
-import { flatten } from "@array";
+import { flatten } from "../../array";
 
 describe('flatten()', () => {
   test('it should flatten nested array', () => {

@@ -1,4 +1,4 @@
-import { makeTallyByProperty } from "@array";
+import { makeTallyByProperty } from "../../array";
 import { AnyObject } from "@types";
 
 

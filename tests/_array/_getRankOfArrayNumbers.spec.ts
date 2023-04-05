@@ -1,4 +1,4 @@
-import { getRankOfArrayNumbers } from "@array";
+import { getRankOfArrayNumbers } from "../../array";
 
 describe('getRankOfArrayNumbers()', (): void => {
   test('returns the rank of each item', (): void => {

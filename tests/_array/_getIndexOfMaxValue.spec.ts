@@ -1,4 +1,4 @@
-import { getIndexOfMaxValue } from "@array";
+import { getIndexOfMaxValue } from "../../array";
 
 describe('getIndexOfMaxValue()', () => {
   test('returns index of the maximum value in array', () => {

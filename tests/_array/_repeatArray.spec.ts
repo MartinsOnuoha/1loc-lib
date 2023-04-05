@@ -1,4 +1,4 @@
-import { repeatArray } from "@array";
+import { repeatArray } from "../../array";
 
 const arr: Array<number> = [1, 2, 3]
 const result = repeatArray(arr, 3)

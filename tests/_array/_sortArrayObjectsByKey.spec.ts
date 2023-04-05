@@ -1,4 +1,4 @@
-import { sortArrayObjectsByKey } from "@array";
+import { sortArrayObjectsByKey } from "../../array";
 
 describe('sortArrayObjectsByKey()', (): void => {
   test('sorts items based on give key', () => {

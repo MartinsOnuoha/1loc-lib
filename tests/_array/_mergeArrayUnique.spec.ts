@@ -1,4 +1,4 @@
-import { mergeArrayUnique } from "@array";
+import { mergeArrayUnique } from "../../array";
 
 const result = mergeArrayUnique([1, 2, 4], [3, 2, 4], [5, 5, 6])
 

@@ -1,4 +1,4 @@
-import { arrayOfObjectToObject } from "@array";
+import { arrayOfObjectToObject } from "../../array";
 import { Person } from "@types";
 
 describe('arrayOfObjectToObject()', (): void => {

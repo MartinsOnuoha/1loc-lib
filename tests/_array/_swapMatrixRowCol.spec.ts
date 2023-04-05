@@ -1,4 +1,4 @@
-import { transpose } from "@array";
+import { transpose } from "../../array";
 
 describe('transpose()', (): void => {
   test('swaps matrix row and column', (): void => {

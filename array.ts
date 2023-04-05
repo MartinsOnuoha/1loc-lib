@@ -1,6 +1,79 @@
 import { AnyObject, Order } from '@types'
 
 /**
+ * Split an array into chunks
+ * @param arr array to be chuncked
+ * @param size hwo many chuncks
+ * @returns array chunks
+ */
+const chunk = <T,>(arr: T[], size: number): T[][] => arr.reduce((acc: T[][], e, i) => (i % size ? acc[acc.length - 1].push(e) : acc.push([e]), acc), []);
+/**
+ * Swaps the rows and columns of a matrix
+ * @param matrix matrix to swap
+ * @returns matrix after swap
+ */
+const transpose = <T extends number>(matrix: Array<T[]>): Array<T[]> => matrix[0].map((_, i) => matrix.map(row => row[i]));
+/**
+ * zip a given array
+ * @param arr array to be zipped
+ * @returns zipped array
+ */
+const zip = (...arr: Array<Array<any>>) => Array.from({ length: Math.max(...arr.map(a => a.length)) }, (_, i) => arr.map(a => a[i]));
+/**
+ * Add AM PM suffix to an hour
+ * @param h is an hour number between 0 and 23
+ * @returns string
+ */
+const suffixAmPm = (h: number): string => `${h % 12 === 0 ? 12 : h % 12}${h < 12 ? 'am' : 'pm'}`;
+/**
+ * Calculate the number of difference days between two dates
+ * @param date Date
+ * @param otherDate Date
+ * @returns number
+ */
+const diffDays = (date: Date, otherDate: Date): number => Math.ceil(Math.abs(date.valueOf() - otherDate.valueOf()) / (1000 * 60 * 60 * 24));
+/**
+ * Calculate the number of months between two dates
+ * @param startDate
+ * @param endDate
+ * @returns number
+ */
+const monthDiff = (startDate: Date, endDate: Date): number => Math.max(0, (endDate.getFullYear() - startDate.getFullYear()) * 12 - startDate.getMonth() + endDate.getMonth());
+/**
+ * swap array items
+ * @param arr array to swap
+ * @param i first item
+ * @param j second item
+ * @returns array with swaped values
+ */
+const swapArrayItems = <T,_>(a: T[], i: number, j: number): T[] => (a[i] && a[j] && [...a.slice(0, i), a[j], ...a.slice(i + 1, j), a[i], ...a.slice(j + 1)]) || a;
+/**
+ * unzip a given array
+ * @param arr array to be unzipped
+ * @returns unzipped array
+ */
+const unzip = (arr: Array<Array<any>>): Array<any> => arr.reduce((acc, c) => (c.forEach((v, i) => acc[i].push(v)), acc), Array.from({ length: Math.max(...arr.map(a => a.length)) }, (_) => []));
+/**
+ * Compare two dates
+ * @param a first date
+ * @param b second date
+ * @returns boolean
+ */
+const compareDates = (a: Date, b: Date): boolean => a.getTime() > b.getTime();
+/**
+ * Convert a date to YYYY-MM-DD format
+ * @param date
+ * @returns string
+ */
+const formatYmd = (date: Date): string => date.toISOString().slice(0, 10);
+/**
+ * Convert seconds to hh:mm:ss format
+ * @param s is number of seconds
+ * @returns string
+ */
+const secondsToHms = (s: number): string => new Date(s * 1000).toISOString().substr(11, 8);
+
+/**
  * Cast a value as an array
  * @param value value to be casted to array
  * @returns
@@ -320,45 +393,20 @@ const sortArrayObjectsByKey = (arr: Array<AnyObject>, key: string): Array<AnyObj
  */
 const sortArrayOfNumbers = (arr: Array<number>): Array<number> => arr.sort((a: number, b: number) => a - b);
 
-/**
- * Split an array into chunks
- * @param arr array to be chuncked
- * @param size hwo many chuncks
- * @returns array chunks
- */
-const chunk = <T,>(arr: T[], size: number): T[][] => arr.reduce((acc: T[][], e, i) => (i % size ? acc[acc.length - 1].push(e) : acc.push([e]), acc), []);
-
-/**
- * Swaps the rows and columns of a matrix
- * @param matrix matrix to swap
- * @returns matrix after swap
- */
-const transpose = <T extends number>(matrix: Array<T[]>): Array<T[]> => matrix[0].map((_, i) => matrix.map(row => row[i]));
-
-/**
- * swap array items
- * @param arr array to swap
- * @param i first item
- * @param j second item
- * @returns array with swaped values
- */
-const swapArrayItems = (arr: Array<any>, i: any, j: any): Array<any> => arr[i] && arr[j] && [...arr.slice(0, i), arr[j], ...arr.slice(i + 1, j), arr[i], ...arr.slice(j + 1)] || arr;
-
-/**
- * unzip a given array
- * @param arr array to be unzipped
- * @returns unzipped array
- */
-const unzipArrayOfArrays = (arr: Array<Array<any>>): Array<any> => arr.reduce((acc, c) => (c.forEach((v, i) => acc[i].push(v)), acc), Array.from({ length: Math.max(...arr.map(a => a.length)) }, (_) => []));
-
-/**
- * zip a given array
- * @param arr array to be zipped
- * @returns zipped array
- */
-const zipArrayOfArrays = (...arr: Array<Array<any>>) => Array.from({ length: Math.max(...arr.map(a => a.length)) }, (_, i) => arr.map(a => a[i]));
 
 export {
+  chunk,
+  transpose,
+  zip,
+  suffixAmPm,
+  diffDays,
+  monthDiff,
+  swapArrayItems,
+  unzip,
+  compareDates,
+  formatYmd,
+  secondsToHms,
+
   castAsArray,
   isArrayEmpty,
   cloneArray,
@@ -403,9 +451,4 @@ export {
   shuffleArray,
   sortArrayObjectsByKey,
   sortArrayOfNumbers,
-  chunk,
-  transpose,
-  swapArrayItems,
-  unzipArrayOfArrays,
-  zipArrayOfArrays
 }

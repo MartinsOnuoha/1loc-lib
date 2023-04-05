@@ -1,4 +1,4 @@
-import { getSingleOccurrence } from "@array";
+import { getSingleOccurrence } from "../../array";
 
 const arr = ['h', 'e', 'l', 'l', 'o', 'w', 'o', 'r', 'l', 'd']
 const result = getSingleOccurrence(arr)

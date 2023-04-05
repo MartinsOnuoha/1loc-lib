@@ -1,4 +1,4 @@
-import { getIndices } from "@array";
+import { getIndices } from "../../array";
 
 describe('getIndices()', () => {
   test('returns indices of item', () => {

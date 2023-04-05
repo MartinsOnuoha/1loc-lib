@@ -1,4 +1,4 @@
-import { getNthItems } from "@array";
+import { getNthItems } from "../../array";
 
 describe('getNthItems()', () => {
   test('returns array of nth items', () => {

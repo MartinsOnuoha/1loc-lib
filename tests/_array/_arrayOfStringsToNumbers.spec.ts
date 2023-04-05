@@ -1,4 +1,4 @@
-import { arrayOfStringsToNumbers } from "@array";
+import { arrayOfStringsToNumbers } from "../../array";
 
 describe('arrayOfStringsToNumbers()', (): void => {
   test('returns array of numbers given array of strings', (): void => {

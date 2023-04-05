@@ -1,4 +1,4 @@
-import { sortArrayOfNumbers } from "@array";
+import { sortArrayOfNumbers } from "../../array";
 
 describe('sortArrayOfNumbers()', (): void => {
   test('returns sorted array', () => {

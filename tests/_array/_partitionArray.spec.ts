@@ -1,4 +1,4 @@
-import { partitionArray } from "@array";
+import { partitionArray } from "../../array";
 
 const result = partitionArray([1, 2, 3, 4, 5], (n: number) => n % 2)
 

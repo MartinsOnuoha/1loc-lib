@@ -1,4 +1,4 @@
-import { getConsecutiveArrays } from "@array";
+import { getConsecutiveArrays } from "../../array";
 
 describe('getConsecutiveArrays()', () => {
   it('returns an array of consecutive arrays', () => {

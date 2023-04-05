@@ -1,4 +1,4 @@
-import { groupByKey } from "@array";
+import { groupByKey } from "../../array";
 import { AnyObject } from "@types";
 
 describe('groupByKey()', (): void => {

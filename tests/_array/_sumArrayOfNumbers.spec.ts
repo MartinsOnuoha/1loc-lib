@@ -1,4 +1,4 @@
-import { sumArrayOfNumbers } from "@array";
+import { sumArrayOfNumbers } from "../../array";
 
 const result = sumArrayOfNumbers([2, 3, 4])
 describe('sumArrayOfNumbers()', (): void => {

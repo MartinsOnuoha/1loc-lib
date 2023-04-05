@@ -1,4 +1,4 @@
-import { getIndexOfMinValue } from "@array";
+import { getIndexOfMinValue } from "../../array";
 
 describe('getIndexOfMinValue()', () => {
   test('returns the index of minimum value in array', () => {

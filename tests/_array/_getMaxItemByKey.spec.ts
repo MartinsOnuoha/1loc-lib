@@ -1,4 +1,4 @@
-import { getMaxItemByKey } from "@array";
+import { getMaxItemByKey } from "../../array";
 
 describe('getMaxItemByKey()', () => {
   test('returns object with max value of provided key', () => {

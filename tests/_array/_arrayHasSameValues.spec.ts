@@ -1,4 +1,4 @@
-import { arrayHasSameValues } from "@array";
+import { arrayHasSameValues } from "../../array";
 
 describe('arrayHasSameValues()', (): void => {
   test('returns true for arrays with similar values', (): void => {
