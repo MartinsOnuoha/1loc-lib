@@ -32,7 +32,11 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run Tests
         run: yarn test
-      
+
       # Run Build
       - name: Run Build
         run: yarn build:main
+
+      # Run Eample
+      - name: Run Example
+        run: cd examples && yarn && cd .. && yarn run:example
