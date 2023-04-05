@@ -1,8 +1,8 @@
 {
   "name": "1loc",
-  "version": "1.1.2",
+  "version": "1.1.7",
   "description": "One line of code as a library",
-  "main": "dist/src/index.js",
+  "main": "dist/index.js",
   "private": false,
   "repository": "https://github.com/MartinsOnuoha/1loc-lib",
   "contributors": [
@@ -17,14 +17,14 @@
       "url": "https://github.com/MartinsOnuoha"
     }
   ],
-  "types": "./src/index.ts",
+  "types": "./index.ts",
   "scripts": {
     "test": "jest --verbose",
     "watch:test": "jest --verbose --watch",
     "watch:build": "no -p tsconfig.json -w",
     "build:main": "tsc -p tsconfig.json",
     "build": "ts-node -r tsconfig-paths/register ./index.ts",
-    "build:publish": "rm ./*.tgz && yarn build:main && npm pack && npm publish",
+    "build:publish": "yarn build:main && npm pack && npm publish",
     "commit": "git add . && git cz",
     "run:example": "node ./examples"
   },
@@ -60,8 +60,8 @@
     }
   },
   "_moduleAliases": {
-    "@array": "dist/groups/array",
-    "@dom": "dist/groups/dom"
+    "@array": "dist/array",
+    "@dom": "dist/dom"
   },
   "dependencies": {
     "module-alias": "^2.2.2"
