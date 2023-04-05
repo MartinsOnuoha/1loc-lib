@@ -8,8 +8,8 @@ module.exports = {
   plugins: [
     ["module-resolver", {
       "alias": {
-        "@array": "./src/groups/array.ts",
-        "@dom": "./src/groups/dom.ts"
+        "@array": "./array.ts",
+        "@dom": "./dom.ts"
       }
     }]
   ]
