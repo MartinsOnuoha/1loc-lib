@@ -1,8 +1,8 @@
-import { swapMatrixRowCol } from "@array";
+import { transpose } from "@array";
 
-describe('swapMatrixRowCol()', (): void => {
+describe('transpose()', (): void => {
   test('swaps matrix row and column', (): void => {
-    expect(swapMatrixRowCol([
+    expect(transpose([
       [1, 2, 3],
       [4, 5, 6],
       [7, 8, 9],

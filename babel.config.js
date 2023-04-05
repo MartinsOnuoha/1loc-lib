@@ -10,8 +10,6 @@ module.exports = {
       "alias": {
         "@array": "./src/groups/array.ts",
         "@dom": "./src/groups/dom.ts"
-        // "@array": "./groups/array.ts",
-
       }
     }]
   ]
