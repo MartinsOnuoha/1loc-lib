@@ -326,14 +326,16 @@ const sortArrayOfNumbers = (arr: Array<number>): Array<number> => arr.sort((a: n
  * @param size hwo many chuncks
  * @returns array chunks
  */
-const chunkArray = <T,>(arr: T[], size: number): T[][] => arr.reduce((acc: T[][], e, i) => (i % size ? acc[acc.length - 1].push(e) : acc.push([e]), acc), []);
+const chunk = <T,>(arr: T[], size: number): T[][] => (
+  arr.reduce((acc, e, i) => (i % size ? acc[acc.length - 1].push(e) : acc.push([e]), acc), [] as T[][])
+);
 
 /**
  * Swaps the rows and columns of a matrix
  * @param matrix matrix to swap
  * @returns matrix after swap
  */
-const swapMatrixRowCol = <T extends number>(matrix: Array<T[]>): Array<T[]> => matrix[0].map((_, i) => matrix.map(row => row[i]));
+const transpose = <T extends number>(matrix: Array<T[]>): Array<T[]> => matrix[0].map((_, i) => matrix.map(row => row[i]));
 
 /**
  * swap array items
@@ -403,8 +405,8 @@ export {
   shuffleArray,
   sortArrayObjectsByKey,
   sortArrayOfNumbers,
-  chunkArray,
-  swapMatrixRowCol,
+  chunk,
+  transpose,
   swapArrayItems,
   unzipArrayOfArrays,
   zipArrayOfArrays
