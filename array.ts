@@ -78,6 +78,12 @@ const secondsToHms = (s: number): string => new Date(s * 1000).toISOString().sub
  * @returns string[]
  */
 const extractDateProps = (date: Date): string[] =>date.toISOString().split(/[^0-9]/).slice(0, -1);
+/**
+ * Determine one year from now
+ * @param d Date
+ * @returns Date
+ */
+const plusOneYear: Date = ((d) => new Date(d.setFullYear(d.getFullYear() + 1)))(new Date());
 
 
 /**
@@ -414,6 +420,8 @@ export {
   formatYmd,
   secondsToHms,
   extractDateProps,
+  plusOneYear,
+
 
   castAsArray,
   isArrayEmpty,
