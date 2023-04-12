@@ -61,3 +61,11 @@ You can also visit the original 1loc website [here](https://1loc.dev/).
 Here's a collection of function definitions and what they do.
 
 ## Contribution
+
+You can fork the 1loc-lib and create an MR from your fork.
+
+Alternatively, clone the 1loc-lib locally.
+
+```bash
+git clone git@github.com:MartinsOnuoha/1loc-lib.git
+```
